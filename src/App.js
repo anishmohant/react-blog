@@ -1,10 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom"
 import Home from "./Home";
-import BookList from "./BookList";
-import Book from "./Book";
-import NewBook from "./NewBook";
+
 import NotFound from "./NotFound";
-import BookListLayout from "./BookListLayout";
+import BookRoutes from "./BookRoutes";
 function App() {
   return (
     <>
@@ -17,12 +15,10 @@ function App() {
     </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<BookListLayout/>}>
-          <Route index element={<BookList />} />
-          <Route path=":id" element={<Book />} />
-          <Route path="new" element={<NewBook />} />
+        <Route path="/books/*" element={<BookRoutes/>}/>
 
-        </Route>
+
+
 
 
         
