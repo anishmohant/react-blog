@@ -4,6 +4,7 @@ import BookList from "./BookList";
 import Book from "./Book";
 import NewBook from "./NewBook";
 import NotFound from "./NotFound";
+import BookListLayout from "./BookListLayout";
 function App() {
   return (
     <>
@@ -16,9 +17,15 @@ function App() {
     </nav>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/books" element={<BookList />} />
-        <Route path="/books/:id" element={<Book/>} />
-        <Route path="/books/new" element={<NewBook />} />
+        <Route path="/books" element={<BookListLayout/>}>
+          <Route index element={<BookList />} />
+          <Route path=":id" element={<Book />} />
+          <Route path="new" element={<NewBook />} />
+
+        </Route>
+
+
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
